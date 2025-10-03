@@ -5,12 +5,14 @@ A comprehensive guide to becoming a professional frontend developer using this p
 ## Prerequisites
 
 ### Required Knowledge
+
 - HTML5 fundamentals (semantic markup, forms, accessibility)
 - CSS basics (box model, flexbox, grid, responsive design)
 - JavaScript ES6+ (modules, destructuring, async/await, arrow functions)
 - Git version control basics
 
 ### Recommended Tools
+
 - VS Code with Vue/Vite extensions
 - Node.js 18+ and pnpm
 - Browser DevTools (Chrome/Firefox)
@@ -23,12 +25,14 @@ A comprehensive guide to becoming a professional frontend developer using this p
 ### Module 1: Modern Build Tools (Vite)
 
 **Concepts**:
+
 - ES modules vs CommonJS
 - Hot Module Replacement (HMR)
 - Build optimization & tree shaking
 - Development vs production builds
 
 **Practice**:
+
 ```bash
 # Explore Vite features
 npm run dev        # Watch HMR in action
@@ -37,11 +41,13 @@ npm run preview    # Test production build
 ```
 
 **Deep Dive**:
+
 - [vite.config.js](../vite.config.js) — Plugin system, build configuration
 - Rolldown bundler (Rust-based Vite alternative)
 - Source maps and debugging
 
 **Resources**:
+
 - [Vite Guide](https://vitejs.dev/guide/)
 - [Why Vite?](https://vitejs.dev/guide/why.html)
 
@@ -50,6 +56,7 @@ npm run preview    # Test production build
 ### Module 2: Vue 3 Composition API
 
 **Concepts**:
+
 - Reactivity system (ref, reactive, computed)
 - Component lifecycle (onMounted, onUnmounted, watch)
 - `<script setup>` syntax sugar
@@ -57,6 +64,7 @@ npm run preview    # Test production build
 - Composables (reusable logic)
 
 **Practice**:
+
 ```vue
 <!-- Create your first composable -->
 <script setup>
@@ -74,16 +82,19 @@ onMounted(() => {
 ```
 
 **Study Files**:
+
 - [App.vue](../src/App.vue) — Root component structure
 - [HelloWorld.vue](../src/components/HelloWorld.vue) — Props & reactivity
 
 **Advanced Topics**:
+
 - Provide/inject for dependency injection
 - Teleport for portal-style rendering
 - Suspense for async components
 - Custom directives
 
 **Resources**:
+
 - [Vue 3 Composition API](https://vuejs.org/guide/extras/composition-api-faq.html)
 - [Script Setup RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md)
 
@@ -92,6 +103,7 @@ onMounted(() => {
 ### Module 3: Tailwind CSS v4 (Utility-First CSS)
 
 **Concepts**:
+
 - Utility-first methodology vs component CSS
 - Design tokens and consistency
 - Responsive modifiers (sm:, md:, lg:)
@@ -99,21 +111,23 @@ onMounted(() => {
 - CSS-based configuration (Tailwind v4 feature)
 
 **Setup** (Not yet configured in project):
+
 ```js
 // vite.config.js
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [vue(), tailwindcss()]
+  plugins: [vue(), tailwindcss()],
 })
 ```
 
 ```css
 /* style.css */
-@import "tailwindcss";
+@import 'tailwindcss';
 ```
 
 **Practice Examples**:
+
 ```vue
 <!-- Responsive card component -->
 <div class="p-4 sm:p-6 md:p-8 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
@@ -127,17 +141,20 @@ export default defineConfig({
 ```
 
 **Exercises**:
+
 1. Build a navigation bar (sticky, responsive menu)
 2. Create a hero section with gradient background
 3. Design a card grid (auto-responsive with grid)
 4. Implement dark mode with `dark:` variants
 
 **Advanced**:
+
 - Custom CSS variables in Tailwind v4
 - `@layer` for custom utilities
 - Performance optimization (PurgeCSS automatic)
 
 **Resources**:
+
 - [Tailwind CSS v4 Docs](https://tailwindcss.com/docs)
 - [Utility-First Fundamentals](https://tailwindcss.com/docs/utility-first)
 
@@ -148,6 +165,7 @@ export default defineConfig({
 **Patterns**:
 
 #### 1. Container/Presenter Pattern
+
 ```vue
 <!-- Container (logic) -->
 <script setup>
@@ -172,7 +190,7 @@ async function fetchUsers() {
 <script setup>
 defineProps({
   users: Array,
-  loading: Boolean
+  loading: Boolean,
 })
 </script>
 
@@ -185,6 +203,7 @@ defineProps({
 ```
 
 #### 2. Composables for Reusable Logic
+
 ```js
 // composables/useCounter.js
 import { ref, computed } from 'vue'
@@ -202,6 +221,7 @@ export function useCounter(initial = 0) {
 ```
 
 **Best Practices**:
+
 - Single Responsibility Principle (one job per component)
 - Props down, events up (unidirectional data flow)
 - Prop validation with TypeScript or PropTypes
@@ -212,6 +232,7 @@ export function useCounter(initial = 0) {
 ### Module 5: State Management
 
 **When to Use**:
+
 - Global state (user auth, theme)
 - Shared state across routes
 - Complex data flows
@@ -219,6 +240,7 @@ export function useCounter(initial = 0) {
 **Options**:
 
 #### Pinia (Recommended for Vue 3)
+
 ```bash
 npm install pinia
 ```
@@ -232,12 +254,13 @@ export const useCounterStore = defineStore('counter', {
   actions: {
     increment() {
       this.count++
-    }
-  }
+    },
+  },
 })
 ```
 
 #### Provide/Inject (Built-in)
+
 ```vue
 <!-- Parent -->
 <script setup>
@@ -258,11 +281,13 @@ const theme = inject('theme')
 ### Module 6: Routing (Vue Router)
 
 **Installation**:
+
 ```bash
 npm install vue-router@4
 ```
 
 **Setup**:
+
 ```js
 // router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
@@ -272,12 +297,13 @@ export default createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', component: Home },
-    { path: '/about', component: () => import('../views/About.vue') }
-  ]
+    { path: '/about', component: () => import('../views/About.vue') },
+  ],
 })
 ```
 
 **Features to Master**:
+
 - Dynamic routes (`/user/:id`)
 - Nested routes
 - Navigation guards (authentication)
@@ -288,6 +314,7 @@ export default createRouter({
 ### Module 7: API Integration
 
 **Fetch Patterns**:
+
 ```js
 // composables/useApi.js
 import { ref } from 'vue'
@@ -314,6 +341,7 @@ export function useApi(url) {
 ```
 
 **Advanced**:
+
 - Axios for interceptors/retry logic
 - TanStack Query (Vue Query) for caching
 - WebSocket integration
@@ -324,6 +352,7 @@ export function useApi(url) {
 ### Module 8: Testing
 
 **Unit Testing (Vitest)**:
+
 ```bash
 npm install -D vitest @vue/test-utils
 ```
@@ -335,7 +364,7 @@ import HelloWorld from './HelloWorld.vue'
 
 test('increments count on click', async () => {
   const wrapper = mount(HelloWorld, {
-    props: { msg: 'Test' }
+    props: { msg: 'Test' },
   })
 
   await wrapper.find('button').trigger('click')
@@ -344,11 +373,13 @@ test('increments count on click', async () => {
 ```
 
 **E2E Testing (Playwright)**:
+
 ```bash
 npm install -D @playwright/test
 ```
 
 **Component Testing**:
+
 - Storybook for isolated development
 - Visual regression with Percy/Chromatic
 
@@ -357,22 +388,27 @@ npm install -D @playwright/test
 ### Module 9: Performance Optimization
 
 **Techniques**:
+
 1. **Code Splitting**
+
    ```js
    const Heavy = defineAsyncComponent(() => import('./Heavy.vue'))
    ```
 
 2. **Virtual Scrolling**
+
    ```bash
    npm install vue-virtual-scroller
    ```
 
 3. **Lazy Images**
+
    ```vue
    <img loading="lazy" src="image.jpg" />
    ```
 
 4. **Memoization**
+
    ```vue
    <script setup>
    import { computed } from 'vue'
@@ -381,6 +417,7 @@ npm install -D @playwright/test
    ```
 
 **Monitoring**:
+
 - Lighthouse audits
 - Vue DevTools performance tab
 - Bundle analyzer
@@ -390,11 +427,13 @@ npm install -D @playwright/test
 ### Module 10: TypeScript Integration
 
 **Setup**:
+
 ```bash
 npm install -D typescript vue-tsc
 ```
 
 **Migration**:
+
 ```vue
 <script setup lang="ts">
 interface Props {
@@ -403,7 +442,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  count: 0
+  count: 0,
 })
 
 const emit = defineEmits<{
@@ -413,6 +452,7 @@ const emit = defineEmits<{
 ```
 
 **Benefits**:
+
 - Type safety for props/events
 - Better IDE autocomplete
 - Catch errors at compile time
@@ -422,6 +462,7 @@ const emit = defineEmits<{
 ### Module 11: Accessibility (A11Y)
 
 **Checklist**:
+
 - ✅ Semantic HTML (`<nav>`, `<main>`, `<article>`)
 - ✅ ARIA labels for interactive elements
 - ✅ Keyboard navigation (Tab, Enter, Escape)
@@ -430,6 +471,7 @@ const emit = defineEmits<{
 - ✅ Screen reader testing (NVDA, VoiceOver)
 
 **Tools**:
+
 - axe DevTools extension
 - WAVE browser extension
 - Lighthouse accessibility audit
@@ -439,6 +481,7 @@ const emit = defineEmits<{
 ### Module 12: Production Readiness
 
 **Checklist**:
+
 - [ ] Environment variables (.env, .env.production)
 - [ ] Error tracking (Sentry, Rollbar)
 - [ ] Analytics (Google Analytics, Plausible)
@@ -449,6 +492,7 @@ const emit = defineEmits<{
 - [ ] CI/CD pipeline (GitHub Actions, GitLab CI)
 
 **Deployment**:
+
 ```bash
 # Build
 npm run build
@@ -462,45 +506,54 @@ npm run build
 ## Project-Based Learning Path
 
 ### Beginner Projects
+
 1. **Todo App** — CRUD operations, local storage
 2. **Weather Dashboard** — API integration, error handling
 3. **Portfolio Site** — Responsive design, animations
 
 ### Intermediate Projects
-4. **E-commerce Product Page** — State management, cart logic
-5. **Blog with CMS** — Routing, markdown rendering
-6. **Dashboard with Charts** — Data visualization, performance
+
+1. **E-commerce Product Page** — State management, cart logic
+2. **Blog with CMS** — Routing, markdown rendering
+3. **Dashboard with Charts** — Data visualization, performance
 
 ### Advanced Projects
-7. **Real-time Chat** — WebSockets, Pinia store
-8. **Admin Panel** — Authentication, role-based access
-9. **Component Library** — Documentation, testing, publishing
+
+1. **Real-time Chat** — WebSockets, Pinia store
+2. **Admin Panel** — Authentication, role-based access
+3. **Component Library** — Documentation, testing, publishing
 
 ---
 
 ## Daily Practice Routine
 
 **Week 1-2**: Vite + Vue fundamentals
+
 - Build 3 small components daily
 - Read Vue docs (1 section/day)
 
 **Week 3-4**: Tailwind CSS mastery
+
 - Recreate 1 UI design from Dribbble
 - Practice responsive layouts
 
 **Week 5-6**: State management + routing
+
 - Build multi-page app
 - Implement authentication flow
 
 **Week 7-8**: Testing + performance
+
 - Write tests for existing components
 - Optimize bundle size
 
 **Week 9-10**: TypeScript migration
+
 - Convert project to TypeScript
 - Add type definitions
 
 **Week 11-12**: Production deployment
+
 - Deploy to hosting platform
 - Set up monitoring
 
@@ -509,22 +562,26 @@ npm run build
 ## Resources
 
 ### Official Documentation
+
 - [Vue 3](https://vuejs.org/)
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Pinia](https://pinia.vuejs.org/)
 
 ### Courses
+
 - [Vue Mastery](https://www.vuemastery.com/) (premium)
 - [Frontend Masters](https://frontendmasters.com/) (Vue & performance)
 - [Egghead.io](https://egghead.io/) (composables deep dive)
 
 ### Communities
+
 - [Vue Discord](https://discord.com/invite/vue)
 - [r/vuejs](https://reddit.com/r/vuejs)
 - [Vue Forum](https://forum.vuejs.org/)
 
 ### Blogs
+
 - [Vue.js Blog](https://blog.vuejs.org/)
 - [CSS-Tricks](https://css-tricks.com/) (Tailwind tutorials)
 - [web.dev](https://web.dev/) (performance, a11y)
@@ -541,4 +598,4 @@ npm run build
 
 ---
 
-*Last updated: 2025-10-03 | Based on Vue 3.5, Vite 7, Tailwind CSS v4*
+Note: _Last updated: 2025-10-03 | Based on Vue 3.5, Vite 7, Tailwind CSS v4_
