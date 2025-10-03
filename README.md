@@ -29,10 +29,10 @@ Follow these steps to run the project locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/learn-tailwind-vue3-vite.git
+git clone https://github.com/virachai/vite-vue-tailwind-101
 
 # Go into the project directory
-cd learn-tailwind-vue3-vite
+cd vite-vue-tailwind-101
 
 # Install dependencies
 npm install
@@ -84,7 +84,7 @@ npm run dev
 
 ## 🙋 Author
 
-Made with ❤️ by **[Your Name](https://github.com/your-username)**
+Made with ❤️ by **[Virachai Wongsena](https://github.com/virachai)**
 Feel free to open issues or contribute!
 
 ---
